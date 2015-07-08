@@ -1,0 +1,57 @@
+﻿@model PasSionDvDsTorE.Models.Product
+@{
+    Layout = null;
+}
+
+
+ <div Id="delP" class="col-md-6">
+
+            <div id="del">
+                <h1>Delete Item</h1>
+            </div>
+
+            <div>
+                @Html.TextBoxFor(x => x.Id)
+                @Html.ValidationMessageFor(x => x.Id)
+                <input type ="Submit" value="Find"/>
+            </div>
+            <form>
+            <table>
+                <tr>
+                    <td><h4>Movie Name</h4></td>
+                    <td>
+                        @Model.Name
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Price</h4></td>
+                    <td>
+                        @Model.Price
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Quantity</h4></td>
+                    <td>
+                        @Model.Quantity
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Type</h4></td>
+                    <td>
+                        @Model.CCategory
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Details</h4></td>
+                    <td>
+                        @Model.Details
+                    </td>
+                </tr>
+                
+            </table>
+            <br />
+            <br />
+            <button type="submit" class="btn-info">Save</button>
+            
+                </form>
+        </div>

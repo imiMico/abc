@@ -1,0 +1,67 @@
+﻿@model PasSionDvDsTorE.Models.Product
+@{
+    Layout = null;
+}
+
+
+
+        <div Id="editP" class="col-md-6">
+            <h1>Edit Item</h1>
+            <div>
+                @Html.TextBoxFor(x => x.Id)
+                @Html.ValidationMessageFor(x => x.Id);
+                <input type ="Submit" value="Find"/>
+            </div>
+
+            <div id="edit">
+            <form>
+                
+            <table>
+                <tr>
+                    <td><h4>Movie Name</h4></td>
+                    <td>
+                        @Html.TextBoxFor(x=>x.Name, new { placeholder="Movie Name", @class="form-control", value=@Model.Name} )
+                        @Html.ValidationMessageFor(x=>x.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Price</h4></td>
+                    <td>
+                        @Html.TextBoxFor(x=>x.Price, new { placeholder="Movie Price", @class="form-control", value=@Model.Price} )
+                        @Html.ValidationMessageFor(x=>x.Price)
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Quantity</h4></td>
+                    <td>
+                        @Html.TextBoxFor(x=>x.Quantity, new { placeholder="Movie Quantity", @class="form-control", value=@Model.Quantity} )
+                        @Html.ValidationMessageFor(x=>x.Quantity)
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Type</h4></td>
+                    <td>
+                        @Html.TextBoxFor(x=>x.CCategory, new { placeholder="Movie Quantity", @class="form-control", value=@Model.CCategory} )
+                        @Html.ValidationMessageFor(x=>x.CCategory)
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Details</h4></td>
+                    <td>
+                        @Html.TextAreaFor(x=>x.Details, new { placeholder="Movie Details", @class="form-control", value=@Model.Details} )
+                        @Html.ValidationMessageFor(x=>x.Details)
+                    </td>
+                </tr>
+            </table>
+                <input type="hidden" name="ImagePath" value="@ViewBag.x" />
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <input type="hidden" name="ActorId" value="@Model.ActorId" />
+                <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
+            <br />
+            <br />
+            <button type="submit" class="btn-info">Save</button>
+            
+                </form>
+
+                </div>
+        </div>

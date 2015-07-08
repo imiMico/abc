@@ -1,0 +1,144 @@
+﻿@model PasSionDvDsTorE.Models.Cart
+
+@{
+    ViewBag.Title = "ShoppingBasket";
+    Layout = "~/Views/Shared/_Layout1.cshtml";  
+}
+
+
+
+
+
+
+<link href="~/assets/css/jquery.fancybox.css" rel="stylesheet" />
+<script src="~/assets/Scripts/jquery-1.10.1.min1.js"></script>
+<script src="~/assets/Scripts/jquery.fancybox.js"></script>
+
+<script>
+    $(document).ready(function () {
+        /*
+         *  Simple image gallery. Uses default settings
+         */
+
+        $('.fancybox').click(function () {
+            $('.fancybox').fancybox({
+                wrapCSS: 'fancybox-custom',
+                closeClick: true,
+
+                openEffect: 'none',
+
+                helpers: {
+                    title: {
+                        type: 'inside'
+                    },
+                    overlay: {
+                        css: {
+                            'background': 'rgba(238,238,238,0.85)'
+                        }
+                    }
+                }
+            });
+        });
+
+    });
+
+    </script>
+
+
+
+
+<link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+<link href="~/assets/css/style1.css" rel="stylesheet" />
+<link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+<link href="~/assets/css/style.css" rel="stylesheet" />
+<div class="span12">
+    <h1 style="color:darkgreen; grid-column-align:center ">Shopping Basket</h1>
+@if (@Model == null)
+{
+    <h3 style="color:black">Nothing Found. You Have not Started Shopping Yet</h3>
+}
+else{
+        
+
+<div class="well">
+    
+        <form id="ff1" action="" method="post" enctype = "multipart/form-data">
+            <h3 style="color:black; grid-column-align:center ">Customer Info</h3>
+        <div><a id="pic1" href="@ViewBag.x" style="width:500px"><img src="@ViewBag.x" style="width:120px; height:120px" id="img1"/></a></div>
+            <br />
+            <br />
+            <table border="1">
+            <tr>
+                <td>
+                    <h4>Customer Name:</h4> 
+                </td>
+                <td >
+                    @Model.u.Fname
+                </td>
+            </tr>
+              <tr>
+                <td>
+                    <h5>Contact Info:</h5> 
+                </td>
+                <td >
+                    @Model.u.Phone
+                </td>
+            </tr>
+                <tr>
+                <td>
+                    <h4>Address:</h4> 
+                </td>
+                <td >
+                    @Model.u.Address
+                </td>
+            </tr>
+        </table>
+
+            <h3 style="color:black; grid-column-align:center ">Your Order</h3>
+            <br />
+            <table border="1" style="background-color:white">
+                <tr>
+                    <td>
+                        <h4>Product Name---------</h4> 
+                    </td>
+                    <td>
+                        <h4></h4> 
+                    </td>
+                    <td>
+                        <h4>Product Price---------</h4> 
+                    </td>
+                    <td>
+                        <h4>Product Quantity---------</h4> 
+                    </td>
+                    
+                </tr>
+                @foreach(var p in Model.collection)
+                {
+                   if(p.quantity!=0)
+                    {
+                        <tr>
+                            <td >
+                                @p.p.Name
+                            </td>
+                            <td>
+                            <h4>@ViewBag.d</h4>
+                        </td>
+                            <td >
+                                @p.p.Price
+                            </td>
+                            <td >
+                                @p.quantity
+                            </td>
+                        </tr>
+                    }
+                }
+        </table>
+            <br />
+            <br />
+            <input type="submit" value="Check Out" align="middle"/>
+        </form>  
+    </div>
+}
+    
+</div>    
+        

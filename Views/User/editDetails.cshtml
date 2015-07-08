@@ -1,0 +1,110 @@
+﻿@model PasSionDvDsTorE.Models.Cart
+
+
+@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+    ViewBag.Title = "Account";
+}
+
+
+@*<script>
+    $(document).ready(function () {
+        $('#inputFname').focusout(function () {
+
+            var userName = $('#inputFname').val();
+
+            //alert('User Name ='+ userName);
+            $.getJSON("/user/CheckUserName?Fname=" + userName, function (data) {
+                if (data) {
+                    alert("User Name Already Exits.")
+                    $('#inputFname').val("");
+                }
+            });
+
+        });
+    }
+    );
+
+    $(document).ready(function () {
+        $('#inputConfirmPassword').focusout(function () {
+            if ($('#inputPassword').val() != $('#inputConfirmPassword').val()) {
+                alert("Password Mismatch")
+                $('#inputPassword').val("");
+                $('#inputConfirmPassword').val("");
+            }
+        });
+    }
+    );
+
+</script>*@
+
+
+<link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+<link href="~/assets/css/style1.css" rel="stylesheet" />
+
+<link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+<link href="~/assets/css/style.css" rel="stylesheet" />
+<div class="span12">
+    <ul class="breadcrumb">
+        <li><a href="/Home/Index">Passion'sDVD</a> <span class="divider">/</span></li>
+        <li class="active">Edit Information</li>
+    </ul>
+    <h3> Registration</h3>
+    <div class="well">
+        <form id="f1" class="form-horizontal" action="/User/Update" method="post">
+            <div class="control-group">
+                <div class="controls">
+                  <input type="hidden" name="Password" value="@Model.u.Password" />
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                  <input type="hidden" name="Id" value="@Model.u.Id" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputFname">First name <sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" id="inputFname" placeholder="First Name" name="Fname" value=@Model.u.Fname required>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputLname">Last name <sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" id="inputLname" placeholder="Last Name" name="Lname" value=@Model.u.Lname required>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Email <sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" id="inputEmail" placeholder="Email" name="Email" value=@Model.u.Email required>
+                </div>
+            </div>
+
+            
+
+            <h3>Your address</h3>
+            <div class="control-group">
+                <label class="control-label" for="adress">Address<sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" id="address" placeholder="Adress" name="Address" value=@Model.u.Address required />
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="phone">Phone <sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" name="Phone" id="phone" placeholder="phone" value=@Model.u.Phone required />
+                </div>
+            </div>
+            <sup>*</sup>Required field
+            <div class="control-group">
+                <div class="controls">
+                    <input class="btn btn-large" type="submit" value="Update" id="sub" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

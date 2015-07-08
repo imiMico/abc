@@ -1,0 +1,91 @@
+﻿@model PasSionDvDsTorE.Models.Product
+@{
+    Layout = null;
+}
+        <script>
+            if($('#imgH').val()!="/Files/profile.jpg")
+            {
+                       $('#imgDiv').hide();
+            }
+        </script>
+    
+        <div Id="addP" class="col-md-6">
+            <div>
+                <h1>Add Item</h1>
+            </div>
+
+            <form id="ff1" action="/user/UploadImg" method="post" enctype = "multipart/form-data">
+                <a id="pic1" href="@ViewBag.x" style="width:500px"><img src="@ViewBag.x" style="width:120px; height:120px" id="img1"/></a>
+                <div id="imgDiv"><input type="file" name="image" class="control-group"/>
+                    <br />
+                <input type="submit" value="Upload" id="submit" />
+                    <input type="hidden" value="@ViewBag.x" name="imgH" id="imgH"/>
+                    </div>
+            </form>
+            
+            <form>
+            <table>
+                <tr>
+                    <td><h4>Movie Name</h4></td>
+                    <td>
+                        @Html.TextBoxFor(x=>x.Name, new { placeholder="Movie Name", @class="form-control"} )
+                        @Html.ValidationMessageFor(x=>x.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Price</h4></td>
+                    <td>
+                        @Html.TextBoxFor(x=>x.Price, new { placeholder="Movie Price", @class="form-control"} )
+                        @Html.ValidationMessageFor(x=>x.Price)
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Quantity</h4></td>
+                    <td>
+                        @Html.TextBoxFor(x=>x.Quantity, new { placeholder="Movie Quantity", @class="form-control"} )
+                        @Html.ValidationMessageFor(x=>x.Quantity)
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Category</h4></td>
+                    <td>
+                        <select required name="CategoryId">
+                            <option value=""></option>
+                            <option value="4">Horror</option>
+                            <option value="5">Romantic</option>
+                            <option value="6">Love Stories</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><h4>Type</h4></td>
+                    <td>
+                        @Html.TextBoxFor(x=>x.CCategory, new { placeholder="Movie Type", @class="form-control"} )
+                        @Html.ValidationMessageFor(x=>x.CCategory)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><h4>Actor</h4></td>
+                    <td>
+                        <input type="text" name="Actor" placeholder="Actor" class="form-control" required/>
+                        <input type="hidden" name="ActorId" id="actorId" value="1"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Details</h4></td>
+                    <td>
+                        @Html.TextAreaFor(x=>x.Details, new { placeholder="Movie Details", @class="form-control"} )
+                        @Html.ValidationMessageFor(x=>x.Details)
+                    </td>
+                </tr>
+                
+            </table>
+                <input type="hidden" name="ImagePath" value="@ViewBag.x" />
+                
+            <br />
+            <br />
+            <button type="submit" class="btn-info">Save</button>
+            </form>
+        </div>

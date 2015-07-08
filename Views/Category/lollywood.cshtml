@@ -1,0 +1,68 @@
+﻿@model List<PasSionDvDsTorE.Models.Product>
+
+@{
+    ViewBag.Title = "Lollywood";
+}
+
+<link href="~/assets/css/jquery.fancybox.css" rel="stylesheet" />
+<script src="~/assets/Scripts/jquery-1.10.1.min1.js"></script>
+<script src="~/assets/Scripts/jquery.fancybox.js"></script>
+
+<script>
+    $(document).ready(function() {
+        /*
+         *  Simple image gallery. Uses default settings
+         */
+
+        $('.fancybox').click(function () {
+            $('.fancybox').fancybox({
+                wrapCSS: 'fancybox-custom',
+                closeClick: true,
+
+                openEffect: 'none',
+
+                helpers: {
+                    title: {
+                        type: 'inside'
+                    },
+                    overlay: {
+                        css: {
+                            'background': 'rgba(238,238,238,0.85)'
+                        }
+                    }
+                }
+            });
+        });
+        
+    });
+    
+    </script>
+<div class="content-bg">
+    <div class="wrap">
+        <div class="main">
+            <div class="content">
+                <h2>Lollywood Movies</h2>
+                @for(int i = 0; i < Model.Count;i++ )
+                {
+                    if(Model[i].CCategory==3)
+                    {
+                        <div class="grid_1_of_3 images_1_of_3">
+                            <input type="hidden" value="@Model[i].Id"  name="Id"/>
+                            <a class="fancybox" href="~/images/pic1.jpg" ><img src="~/images/pic1.jpg" alt="" /></a>
+                            <a href="/Product/Details?id=@Model[i].Id"><h3>@Model[i].Name</h3></a>
+                            <span class="price">$@Model[i].Price</span>
+                            <br />
+                            <br />
+                            <div class="btn1">
+                                <a href="/Product/Details?id=@Model[i].Id">  Add to Basket   </a>
+                            </div>
+                        </div>
+                    }
+                
+                }   
+                
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

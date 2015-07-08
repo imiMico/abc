@@ -1,0 +1,124 @@
+﻿    <!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+@model PasSionDvDsTorE.Models.User
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Passion's DvD CollecTion</title>
+    <script src="~/assets/Scripts/bootstrap.js"></script>
+    <link href="~/assets/contents/bootstrap.css" rel="stylesheet" />
+    <script src="~/assets/Scripts/jquery-1.10.1.min1.js"></script>
+    <script src="~/assets/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/assets/Scripts/jquery.validate.js"></script>
+    <script src="~/assets/Scripts/jquery.validate.min.js"></script>
+    <script src="~/assets/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/assets/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <link href="~/assets/contents/simple-sidebar.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            $('#b1').click(function () {
+                var userName = $('#search').val();
+                $.getJSON("/home/search?search=" + userName, function (data) {
+                    $('#div1').unload();
+                    $('#div1').load("/home/searchresults?search="+userName);
+                });
+            }); 
+        });
+    </script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#a1').click(function ()
+            {
+                $('#loader').unload();
+                $('#loader').load('/Admin/AddProduct');
+            });
+
+            $('#a2').click(function () {
+                $('#loader').unload();
+                $('#loader').load('/Admin/EditProduct');
+            });
+
+            $('#a3').click(function () {
+                $('#loader').unload();
+                $('#loader').load('/Admin/DeleteProduct');
+            });
+        });
+        
+    </script>
+
+
+
+
+</head>
+
+
+
+<body>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <a href="/Home/Index">Logout</a>
+            <br />
+        <div id="sidebar-wrapper">
+
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="/Admin/Index">Admin Dashboard</a></li>
+                <li><a id="a1">Add Movie</a></li>
+                <li><a id="a2">Update Movie</a></li>
+                <li><a id="a3">Delete Movie</a></li>
+            </ul>
+        <!--<a href="/Admin/Logout">Logout</a> -->
+            
+            
+        </div>
+    
+    <div id="page-content-wrapper">
+        <div id="loader" class="col-md-9">
+            <h1> Welcome to Admin Dash board</h1>
+            <div class="col-md-6">
+            <form action="/Admin/validate" method="post">
+            <table >
+                <tr>
+                    <td><h4>Name</h4></td>
+                    <td>
+                        @Html.TextBoxFor(x=>x.Email, new { placeholder="Enter Email", @class="form-control", type="Email", Required="Password is Required"} )
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Password</h4></td>
+                    <td>
+                        @Html.TextBoxFor(x=>x.Password, new { placeholder="Enter Password", @class="form-control", type="Password", Required="Password is Required"} )
+                    </td>
+                </tr>
+            </table>
+                
+            <br />
+            <br />
+            <button type="submit" class="btn-info">Login</button>
+            </form>
+                </div>
+        </div>
+    </div>
+   </div>
+      
+        
+
+
+
+
+    
+
+
+
+
+</body>
+</html>

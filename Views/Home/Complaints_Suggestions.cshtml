@@ -1,0 +1,35 @@
+﻿@model PasSionDvDsTorE.Models.Comment
+
+@{
+    ViewBag.Title = "Complaints_Suggestions";
+}
+
+
+<div class="content-bg">
+    <div class="wrap">
+        <div class="main">
+            <div class="content">
+                <h2>Suggestions & Complaints</h2>
+                       </div>
+            <div style="margin-left:30px">
+                
+                @using (Html.BeginForm("Add", "Home",
+                             FormMethod.Post))
+                {
+                <br /><br /><br /><br /><br /><br />
+                    
+                    @Html.LabelFor(m => m.Email)
+                    @Html.TextBoxFor(m => m.Email, new { type = "email" })
+                    @Html.ValidationMessageFor(m => m.Email)
+                    <div>@Html.LabelFor(m => m.Comments)@Html.TextAreaFor(m => m.Comments)@Html.ValidationMessageFor(m => m.Comments)</div>
+                    <button type="submit" id="btnAddComment">Submit</button><sub style="margin-left:20px">@Html.ActionLink("Not a member?", "Register", "User") </sub>
+                    <br/><br />
+                    <br /><br />
+                
+                }
+                <div class="clear"></div>
+     </div>
+        </div>
+    </div>
+</div>
+

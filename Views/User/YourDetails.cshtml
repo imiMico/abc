@@ -1,0 +1,49 @@
+﻿@model PasSionDvDsTorE.Models.Cart
+@{
+    ViewBag.Title = "YourDetails";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+<link href="~/assets/css/style1.css" rel="stylesheet" />
+
+<link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+<link href="~/assets/css/style.css" rel="stylesheet" />
+<div class="span12">
+    <ul class="breadcrumb">
+        <li><a href="/Home/Index">Passion'sDVD</a> <span class="divider">/</span></li>
+        <li class="active">Edit Information</li>
+    </ul>
+    <h3> Your Details</h3>
+    <div class="well">
+            <table class="controls">
+                <tr>
+                    <td><h5>First name:</h5></td>
+                    <td>@Model.u.Fname</td>
+                </tr>
+                <tr>
+                    <td><h5>Last name:</h5></td>
+                    <td>@Model.u.Lname</td>
+                </tr>
+                <tr>
+                    <td><h5>Email:</h5></td>
+                    <td>@Model.u.Email</td>
+                </tr>
+        
+        
+                </table>
+    </div>
+    <h3>Your address</h3>
+        <div class="well">
+            <table class="controls">
+                    <tr>
+                        <td><h5>Address:</h5></td>
+                        <td>@Model.u.Address</td>
+                    </tr>
+                    <tr><td><h5>Phone:</h5></td>
+                        <td>@Model.u.Phone</td></tr>
+                </table>
+    </div>
+    
+</div>
+S
